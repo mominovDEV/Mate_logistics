@@ -15,7 +15,7 @@ import { Response } from 'express';
 import { HttpStatus } from '@nestjs/common/enums';
 import { CreateDispatcherDto } from './dto/create-dispatcher.dto';
 import { DispatcherService } from './dispatcher.service';
-import { Dispatcher } from './models/Dispatcher.model';
+import { Dispatcher } from './models/dispatcher.model';
 import { LoginDispatcherDto } from './dto/login.dispatcherdto';
 import { CookieGetter } from '../decorators/cookieGetter.decorators';
 import { DispatcherGuard } from '../guards/dispatcher.guard';

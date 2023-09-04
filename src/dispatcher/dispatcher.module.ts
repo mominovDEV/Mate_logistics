@@ -4,7 +4,7 @@ import { Module } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { DispatchersController } from './dispatcher.controller';
-import { Dispatcher } from './models/Dispatcher.model';
+import { Dispatcher } from './models/dispatcher.model';
 
 @Module({
   imports: [

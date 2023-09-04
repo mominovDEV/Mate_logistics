@@ -32,7 +32,7 @@ export class CandidateController {
   }
 
   @ApiOperation({ summary: "Candidateni id orqali ko'rish" })
-  @UseGuards(AdminGuard)
+  @UseGuards()
   @Post(':id')
   findOneByAdmin(@Param('id') id: string) {
     return this.CandidateService.findOne(+id);
@@ -46,6 +46,7 @@ export class CandidateController {
   }
 
   @ApiOperation({ summary: 'Candidateni id orqali yangilash' })
+  @UseGuards()
   @Patch(':id')
   update(
     @Param('id') id: string,
@@ -55,6 +56,7 @@ export class CandidateController {
   }
 
   @ApiOperation({ summary: "Candidateni id orqali o'chirish" })
+  @UseGuards()
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.CandidateService.remove(+id);

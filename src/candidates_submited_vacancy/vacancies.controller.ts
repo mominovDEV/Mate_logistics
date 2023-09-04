@@ -1,6 +1,6 @@
-import { AdminGuard } from './../guards/Admin.guard';
+import { AdminGuard } from './../guards/admin.guard';
 import { UseGuards } from '@nestjs/common/decorators';
-import { VacanciesService } from './Vacancies.service';
+import { VacanciesService } from './vacancies.service';
 import {
   Controller,
   Get,

@@ -2,33 +2,39 @@ version: '3.8'
 
 services:
   postgres:
-    container_name: postgres
+    container_name: mate_logistics
     image: postgres:14.0-alpine
     restart: always
     environment:
-      - POSTGRES_USER=${POSTGRES_USER}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-      - POSTGRES_DB=${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
     volumes:
       - ./pgdata:/var/lib/postgresql/data
     ports:
-      - 5436:5432
+      - '5434:5432' # Format: <Host Port>:<Container Port>
 
-  app:
-    container_name: nest-graphql
+  apps:
+    container_name: mate_logisticss
     build:
       context: ./
     depends_on:
       - postgres
     restart: unless-stopped
     ports:
-      - 3002:3000
+      - '3003:3001' # Format: <Host Port>:<Container Port>
     environment:
-      - PORT=${PORT}
-      - API_LOCAL_PORT=${API_LOCAL_PORT}
-      - API_HOST=postgres
-      - POSTGRES_USER=${POSTGRES_USER}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-      - POSTGRES_DB=${POSTGRES_DB}
-      - POSTGRES_PORT=${POSTGRES_PORT}
-      - POSTGRES_HOST=${POSTGRES_HOST}
+      TYPEORM_CONNECTION: postgres
+      TYPEORM_USERNAME: ${POSTGRES_USER}
+      TYPEORM_PASSWORD: ${POSTGRES_PASSWORD}
+      TYPEORM_PORT: ${POSTGRES_PORT}
+      TYPEORM_HOST: postgres
+      ACCESS_TOKEN_KEY: ${ACCESS_TOKEN_KEY}
+      ACCESS_TOKEN_TIME: ${ACCESS_TOKEN_TIME}
+      REFRESH_TOKEN_KEY: ${REFRESH_TOKEN_KEY}
+      REFRESH_TOKEN_TIME: ${REFRESH_TOKEN_TIME}
+      MAILER_HOST: ${MAILER_HOST}
+      MAILER_PORT: ${MAILER_PORT}
+      MAILDEV_USER: ${MAILDEV_USER}
+      MAILDEV_PASS: ${MAILDEV_PASS}
+      API_HOST: ${API_HOST}

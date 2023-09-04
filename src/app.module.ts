@@ -8,7 +8,7 @@ import { AdminModule } from './admin/admin.module';
 import { ConfigModule } from '@nestjs/config';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { Admin } from './admin/models/admin.module';
-import { Dispatcher } from './Dispatcher/models/Dispatcher.model';
+import { Dispatcher } from './dispatcher/models/dispatcher.model';
 import { DispatcherModule } from './dispatcher/dispatcher.module';
 import { Candidate } from './candidate/models/candidate.model';
 import { CandidateModule } from './candidate/candidate.module';
@@ -23,11 +23,11 @@ import { VehiclesModule } from './vehicles/vehicles.module';
     ConfigModule.forRoot({ envFilePath: `.env`, isGlobal: true }),
     SequelizeModule.forRoot({
       dialect: 'postgres',
-      host: process.env.POSTGRES_HOST,
-      port: Number(process.env.POSTGRES_PORT),
-      username: process.env.POSTGRES_USER,
-      password: String(process.env.POSTGRES_PASSWORD),
-      database: process.env.POSTGRES_DB,
+      host: process.env.TYPEORM_HOST,
+      port: Number(process.env.TYPEORM_PORT),
+      username: process.env.TYPEORM_CONNECTION,
+      password: String(process.env.TYPEORM_PASSWORD),
+      database: process.env.TYPEORM_DATABASE,
       models: [
         Admin,
         Dispatcher,

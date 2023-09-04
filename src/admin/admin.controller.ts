@@ -1,5 +1,5 @@
 import { JwtGuard } from './../guards/jwt.guard';
-import { AdminGuard } from './../guards/Admin.guard';
+import { AdminGuard } from './../guards/admin.guard';
 import { CookieGetter } from './../decorators/cookieGetter.decorators';
 import {
   Controller,

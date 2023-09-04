@@ -1,4 +1,4 @@
-import { VacanciesService } from './Vacancies.service';
+import { VacanciesService } from './vacancies.service';
 import {
   Controller,
   Get,

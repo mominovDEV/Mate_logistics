@@ -1,7 +1,7 @@
 import { MailerService } from '@nestjs-modules/mailer/dist';
 import { Injectable } from '@nestjs/common';
 import { Admin } from '../admin/models/admin.module';
-import { Dispatcher } from '../Dispatcher/models/Dispatcher.model';
+import { Dispatcher } from '../dispatcher/models/dispatcher.model';
 
 @Injectable()
 export class MailService {

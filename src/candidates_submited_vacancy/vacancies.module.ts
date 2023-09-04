@@ -1,11 +1,11 @@
 import { JwtModule } from '@nestjs/jwt';
-import { AdminGuard } from './../guards/Admin.guard';
+import { AdminGuard } from './../guards/admin.guard';
 import { Candidate } from './../candidate/models/candidate.model';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { Module } from '@nestjs/common';
 import { candidates_submited_vacancy } from './models/vacancies.module';
 import { VacanciesController } from './vacancies.controller';
-import { VacanciesService } from './Vacancies.service';
+import { VacanciesService } from './vacancies.service';
 
 @Module({
   imports: [
